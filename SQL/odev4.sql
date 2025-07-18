@@ -1,0 +1,5 @@
+--select distinct replacement_cost from film order by replacement_cost;--
+--select count(distinct replacement_cost) from film;--
+--select count(*) from film where title like 't%' and rating = 'g';--
+--select count(*) from country where length(country) = 5;--
+--select count(*) from city where lower(city) like '%r';--
