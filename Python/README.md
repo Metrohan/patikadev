@@ -1,62 +1,90 @@
-Python Projeleri
+# Python Projeleri
 
-Bu depo, iki farklı Python görevi için çözümler içermektedir: listeleri düzleştirme (flattening) ve iç içe geçmiş listeleri tersine çevirme.
+Bu depo, iki farklı Python görevi için geliştirilmiş çözümleri içermektedir:
 
-Görev 1: Listeyi Düzleştirme (Flatten)
+- Listeyi düzleştirme (Flattening)
+- İç içe geçmiş listeleri tersine çevirme (Nested Reverse)
 
-Amaç
+---
 
-Verilen çok katmanlı bir listeyi düzleştirerek tek boyutlu bir liste haline getiren bir fonksiyon yazmaktır. Liste elemanları non-scalar verilerden (örn. string, sayı) oluşabilir.
+## 🧩 Görev 1: Listeyi Düzleştirme (Flatten)
 
-Fonksiyon: flatten_list(nested_list)
+### 🎯 Amaç
 
-Bu fonksiyon, iç içe geçmiş tüm alt listelerdeki elemanları alır ve bunları tek bir düz listede birleştirir. Özyinelemeli (recursive) bir yaklaşımla her katmanı işler.
+Verilen çok katmanlı bir listeyi düzleştirerek **tek boyutlu bir liste** haline getiren bir fonksiyon geliştirmek.
 
-Giriş Örneği
+### 📌 Fonksiyon: `flatten_list(nested_list)`
 
-Python
+Bu fonksiyon, iç içe geçmiş tüm alt listeleri özyinelemeli olarak işler ve elemanlarını tek bir düz listede birleştirir.
 
-[[1, 'a', ['cat'], 2], [[[3]], 'dog'], 4, 5]
+### 🧪 Giriş Örneği
 
-Çıkış Örneği
+```python
+nested = [[1, 'a', ['cat'], 2], [[[3]], 'dog'], 4, 5]
+flatten_list(nested)
+```
 
-Python
+### ✅ Çıkış Örneği
 
+```python
 [1, 'a', 'cat', 2, 3, 'dog', 4, 5]
+```
 
-Nasıl Çalışır?
+### ⚙️ Nasıl Çalışır?
 
-Fonksiyon, listenin her bir elemanını kontrol eder. Eğer eleman bir listeyse, kendini tekrar çağırarak (özyineleme) o alt listeyi düzleştirir. Eğer eleman bir liste değilse (yani bir sayı, dize vb. ise), doğrudan düzleştirilmiş listeye ekler.
+Fonksiyon, her bir elemanı kontrol eder:
+- Eğer eleman bir **liste** ise, fonksiyon kendini o alt liste üzerinde **tekrar çağırır** (özyineleme).
+- Eğer eleman bir **liste değilse**, doğrudan düzleştirilmiş son listeye eklenir.
 
-Görev 2: İç İçe Geçmiş Listeleri Tersine Çevirme
+---
 
-Amaç
+## 🔁 Görev 2: İç İçe Geçmiş Listeleri Tersine Çevirme
 
-Verilen bir listenin içindeki elemanları tersine çeviren ve eğer listenin içindeki elemanlar da başka listeler içeriyorsa, onların da elemanlarını tersine çeviren bir fonksiyon yazmaktır.
+### 🎯 Amaç
 
-Fonksiyon: reverse_nested_list(nested_list)
+Verilen bir listenin içindeki elemanları tersine çevirmek ve eğer iç elemanlar da listeler içeriyorsa, **onların da elemanlarını tersine çevirmek**.
 
-Bu fonksiyon, hem ana listeyi hem de içerdiği tüm alt listeleri özyinelemeli olarak tersine çevirir.
+### 📌 Fonksiyon: `reverse_nested_list(nested_list)`
 
-Giriş Örneği
+Bu fonksiyon, hem ana listeyi hem de içerdiği tüm alt listeleri **özyinelemeli olarak** tersine çevirir.
 
-Python
+### 🧪 Giriş Örneği
 
-[[1, 2], [3, 4], [5, 6, 7]]
+```python
+nested = [[1, 2], [3, 4], [5, 6, 7]]
+reverse_nested_list(nested)
+```
 
-Çıkış Örneği
+### ✅ Çıkış Örneği
 
-Python
-
+```python
 [[[7, 6, 5], [4, 3], [2, 1]]]
+```
 
-Nasıl Çalışır?
+### ⚙️ Nasıl Çalışır?
 
-Fonksiyon ilk olarak ana listeyi tersine çevirir. Ardından, tersine çevrilmiş ana listedeki her bir elemanı kontrol eder. Eğer eleman bir listeyse, reverse_nested_list fonksiyonunu o alt liste üzerinde tekrar çağırarak (özyineleme) onun da elemanlarını tersine çevirir. Bu süreç, en içteki listelere ulaşana kadar devam eder.
+1. İlk olarak **ana liste ters çevrilir**.
+2. Daha sonra her bir alt eleman:
+   - Liste ise: fonksiyon kendisini tekrar çağırarak içeriği de ters çevirir.
+   - Liste değilse: olduğu gibi bırakılır.
 
-Kullanım
+---
 
-Her iki fonksiyon da Python'da doğrudan çağrılarak kullanılabilir. Fonksiyonların tanımlandığı .py dosyasını içe aktararak veya doğrudan kopyalayıp yapıştırarak test edebilirsiniz.
+## ⚙️ Kullanım
 
-Geliştirici:
-Metehan Günen
+Fonksiyonları çalıştırmak için doğrudan çağırabilir veya `.py` dosyasını projenize dahil edebilirsiniz.
+
+```python
+from your_module import flatten_list, reverse_nested_list
+
+flat = flatten_list(your_nested_list)
+reversed_nested = reverse_nested_list(your_nested_list)
+```
+
+---
+
+## 👨‍💻 Geliştirici
+
+**Metehan Günen**
+
+---
